@@ -3,3 +3,4 @@ numpy
 datasets
 tokenizers
 trackio
+huggingface_hub
