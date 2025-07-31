@@ -2,81 +2,64 @@
 language: en
 license: mit
 tags:
-  - mermaid
-  - diagram-generation
   - gpt
-  - natural-language-processing
-  - english
+  - diagram-generation
+  - mermaid
   - text-to-diagram
+  - natural-language-processing
+  - toy-model
+datasets:
+  - custom
 model-index:
   - name: mermaidGPT
     results: []
 ---
 
-# 🧠 mermaidGPT — Générateur de graphes Mermaid à partir de texte
+# 🧠 mermaidGPT — Mermaid Diagram Generator from Natural Language
 
-**mermaidGPT** est un petit modèle en français capable de générer des **diagrammes Mermaid.js** à partir d'instructions en langage naturel. Il permet de transformer des phrases simples comme "Créer un diagramme de flux montrant un utilisateur qui se connecte à un site" en code Mermaid valide.
-
----
-
-## 🎯 Objectif
-
-Ce projet vise à faciliter la création de diagrammes techniques à partir de phrases naturelles, pour des usages pédagogiques, documentaires ou de prototypage rapide.
+**mermaidGPT** is a small English-language model trained to generate valid [Mermaid.js](https://mermaid-js.github.io/) diagrams from natural language prompts. It allows users to create flowcharts, sequence diagrams, and more using simple instructions like “Show a user sending a request to a server.”
+Build with the dataset : [Celiadraw/text-to-mermaid](https://huggingface.co/datasets/Celiadraw/text-to-mermaid)
 
 ---
 
-## 🧰 Fonctionnalités
+## 🧰 Features
 
-- Prise en charge du **français**
-- Support des **diagrammes de flux**, **organigrammes**, **diagrammes de séquence**, etc.
-- Modèle léger et rapide à exécuter
-- Export en **.mmd** (fichier texte Mermaid) ou en **image** via rendu
-- Interface CLI ou API (selon l’implémentation)
+- English-only natural language input
+- Generates Mermaid.js graph code (flowcharts, sequence diagrams, etc.)
+- GPT-like architecture using PyTorch
+- Lightweight and fast (trainable on a single GPU)
+- CLI-based usage for generation
+- Can be extended with API or frontend
 
 ---
 
-## 🗃️ Structure du projet
+## 📦 Project Structure
 
 \`\`\`
 /
-├── generate.py         # Génération de diagrammes à partir d'une phrase
-├── model.py            # Architecture du modèle
-├── tokenizer.py        # Tokenizer et prétraitement du texte
-├── data/               # Données d'entraînement (optionnelles ou mock)
-├── examples/           # Exemples de phrases et de sorties Mermaid
-├── checkpoints/        # Modèles sauvegardés
+├── train.py              # Training script
+├── generate.py           # Generate Mermaid code from prompt
+├── tokenizer.py          # Tokenization utilities
+├── model.py              # GPT-style model architecture
+├── data/                 # Training data (if any)
+├── examples/             # Prompt examples and output
+├── checkpoints/          # Saved model checkpoints
 └── README.md
 \`\`\`
 
 ---
 
-## 🚀 Exemple d'utilisation
+## 🚀 Training
 
-### Entrée :
-\`\`\`
-Créer un diagramme de flux montrant un utilisateur qui envoie une requête à un serveur, et reçoit une réponse.
-\`\`\`
-
-### Sortie (code Mermaid) :
-\`\`\`mermaid
-graph TD
-    Utilisateur -->|Requête| Serveur
-    Serveur -->|Réponse| Utilisateur
-\`\`\`
-
----
-
-## 📦 Installation
+### 1. Build the tokenizer
 
 \`\`\`bash
-git clone https://github.com/eric-houzelle/mermaidGPT.git
-cd mermaidGPT
-pip install -r requirements.txt
+python tokenizer.py
 \`\`\`
 
 ---
 
-## 🧪 Entraînement
+### 2. Train the model
 
 \`\`\`bash
 python train.py
@@ -84,31 +67,48 @@ python train.py
 
 ---
 
-## ✍️ Génération
+### 3. Hyperparameters
 
-\`\`\`bash
-python generate.py --prompt "Créer un diagramme montrant A qui appelle B, puis B répond à A"
+\`\`\`
+block_size = 128
+batch_size = 32
+learning_rate = 1e-3
+embed_dim = 128
+n_heads = 8
+n_layers = 8
 \`\`\`
 
 ---
 
-## 🧠 Modèle utilisé
+## ✍️ Generation Example
 
-Le modèle repose sur une architecture GPT-like entraînée à générer du code Mermaid à partir d'un prompt en langage naturel.
+### Prompt:
+\`\`\`
+Create a flowchart showing a user sending a request to a server and receiving a response.
+\`\`\`
+
+### Output:
+\`\`\`mermaid
+graph TD
+    User -->|Request| Server
+    Server -->|Response| User
+\`\`\`
 
 ---
 
-## 📄 Licence
+## 📄 License
 
-Ce projet est sous licence **MIT**. Voir le fichier \`LICENSE\`.
+This project is released under the MIT License. See the \`LICENSE\` file for details.
 
 ---
 
-## 🤗 Hébergement Hugging Face
+## 🤗 Model on Hugging Face
 
-Le modèle peut être testé en ligne sur [Hugging Face Spaces](https://huggingface.co/spaces/) ou téléchargé depuis :  
+Test or download the model on Hugging Face:  
 📦 https://huggingface.co/eric-houzelle/mermaidGPT
 
 ---
 
-## ✉️ Co
+## 📬 Contact
+
+For any suggestions or questions: \`eric.houzelle@email.com\`
