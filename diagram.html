@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+</head>
+<body>
+  <pre class="mermaid">
+ sequenceDiagram
+  participant User
+  participant Shopping Cart
+  participant Payment Gateway
+
+  User ->> Shopping Cart: Select Cart
+  User ->> Shopping Cart: Proceed to Cart
+  Shopping Cart ->> Shopping Cart: Apply 
+  </pre>
+</body>
+</html>
+    
