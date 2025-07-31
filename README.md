@@ -35,7 +35,7 @@ Build with the dataset : [Celiadraw/text-to-mermaid](https://huggingface.co/data
 
 ## 📦 Project Structure
 
-\`\`\`
+```
 /
 ├── train.py              # Training script
 ├── generate.py           # Generate Mermaid code from prompt
@@ -45,7 +45,7 @@ Build with the dataset : [Celiadraw/text-to-mermaid](https://huggingface.co/data
 ├── examples/             # Prompt examples and output
 ├── checkpoints/          # Saved model checkpoints
 └── README.md
-\`\`\`
+```
 
 ---
 
@@ -53,52 +53,52 @@ Build with the dataset : [Celiadraw/text-to-mermaid](https://huggingface.co/data
 
 ### 1. Build the tokenizer
 
-\`\`\`bash
+```bash
 python tokenizer.py
-\`\`\`
+```
 
 ---
 
 ### 2. Train the model
 
-\`\`\`bash
+```bash
 python train.py
-\`\`\`
+```
 
 ---
 
 ### 3. Hyperparameters
 
-\`\`\`
+```
 block_size = 128
 batch_size = 32
 learning_rate = 1e-3
 embed_dim = 128
 n_heads = 8
 n_layers = 8
-\`\`\`
+```
 
 ---
 
 ## ✍️ Generation Example
 
 ### Prompt:
-\`\`\`
+```
 Create a flowchart showing a user sending a request to a server and receiving a response.
-\`\`\`
+```
 
 ### Output:
-\`\`\`mermaid
+```mermaid
 graph TD
     User -->|Request| Server
     Server -->|Response| User
-\`\`\`
+```
 
 ---
 
 ## 📄 License
 
-This project is released under the MIT License. See the \`LICENSE\` file for details.
+This project is released under the MIT License. See the `LICENSE` file for details.
 
 ---
 
@@ -111,4 +111,4 @@ Test or download the model on Hugging Face:
 
 ## 📬 Contact
 
-For any suggestions or questions: \`eric.houzelle@email.com\`
+For any suggestions or questions: `eric.houzelle@email.com`
