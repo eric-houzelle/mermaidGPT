@@ -1,18 +1,21 @@
 ---
 language: en
+library_name: transformers
 license: mit
 tags:
   - gpt
   - diagram-generation
-  - mermaid
   - text-to-diagram
-  - natural-language-processing
-  - toy-model
-datasets:
-  - custom
+  - mermaid
+  - causal-lm
+pipeline_tag: text-generation
 model-index:
   - name: mermaidGPT
     results: []
+model_type: mermaid-gpt
+num_parameters: 16.81M
+datasets:
+  - Celiadraw/text-to-mermaid
 ---
 
 # 🧠 mermaidGPT — Mermaid Diagram Generator from Natural Language
